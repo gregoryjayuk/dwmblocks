@@ -2,11 +2,15 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
 
-	{" ", "df -h | awk 'NR==5{print $2}'",	60,		0},
+	{"", "processcount",							600,		0},
+	{" ", "df -h | awk 'NR==4{print $2}'",	60,		0},
 	{" ", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g",	30,		0},
 	{"", "TZ='Europe/London' date '+%H:%M'",					60,		0},
 	{"", "date '+%d/%m %I:%M'",					60,		0},
-	{"", "pollution",							600,		0},
+	{"", "pollution",							600,		9},
+	{"", "battery",							300,		0},
+	{"", "battery2",							300,		0},
+	{"", "volume",						0,		10},
 
 };
 
