@@ -1,5 +1,24 @@
-# dwmblocks
-Modular status bar for dwm written in c.
+# dwmblocks — my build
+
+A modular status bar for [dwm](https://github.com/gregoryjayuk/dwm), written in C: each block is a shell command with its own update interval, and a block can also be refreshed on demand with a signal (`pkill -RTMIN+10 dwmblocks` redraws the volume block the moment the volume keys are pressed).
+
+## My blocks
+
+| block | command | every |
+|---|---|---|
+| process count | `processcount` | 10 min |
+| disk | `df -h` (size of the home partition) | 1 min |
+| memory | `free -h` (used / total) | 30 s |
+| clock (UK) | `TZ='Europe/London' date '+%H:%M'` | 1 min |
+| local date and time | `date '+%d/%m %I:%M'` | 1 min |
+| air quality | `pollution` | 10 min, or signal 9 |
+| battery, two packs | `battery`, `battery2` | 5 min |
+| volume | `volume` | on signal 10 only |
+
+The commands without a path are small scripts on my `$PATH`. Change the table in `blocks.h` and rebuild.
+
+## Upstream notes
+
 # usage
 To use dwmblocks first run 'make' and then install it with 'sudo make install'.
 After that you can put dwmblocks in your xinitrc or other startup script to have it start with dwm.
